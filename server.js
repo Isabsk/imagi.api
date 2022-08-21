@@ -79,7 +79,7 @@ const ContactSchema = new mongoose.Schema({
 const blogs = mongoose.model("blogs" , BlogSchema)
 const contacts = mongoose.model("contact" , ContactSchema , "contact")
 
-app.get('/', async (req,res)=>{
+app.get('/', (req,res)=>{
     blogs.find({}).sort({_id: -1}).exec( function(err,data){
     	res.send(data)
     })
