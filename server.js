@@ -88,6 +88,11 @@ app.get('/', (req,res)=>{
     })
 })
 
+app.get('/:slug', (req,res)=>{
+    blogs.find({ slug: req.params.slug}).exec( function(err,data){
+        res.send(data)
+    })
+ })
 
 app.listen(process.env.PORT || 3000 , ()=> {
     console.log('running on port 3000')
